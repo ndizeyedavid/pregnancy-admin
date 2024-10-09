@@ -5,7 +5,7 @@ const Stats = ({ messages, users }) => {
 
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-1 mx-auto">
-                    <div className="flex flex-wrap -m-4 text-center">
+                    <div className="flex flex-wrap -m-4 text-center justify-center">
                         <div className="w-full p-4 md:w-1/4 sm:w-1/2">
                             <div className="px-4 py-6 border-2 border-gray-200 rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" className="inline-block w-12 h-12 mb-3 text-indigo-500"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm640-480L501-453q-5 3-10.5 4.5T480-447q-5 0-10.5-1.5T459-453L160-640v400h640v-400ZM480-520l320-200H160l320 200ZM160-640v10-59 1-32 32-.5 58.5-10 400-400Z" /></svg>
