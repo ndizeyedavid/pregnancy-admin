@@ -5,13 +5,16 @@ import axios from "axios";
 const Users = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get(import.meta.env.VITE_BACKEND_URL + '/admin/users')
-            .then(response => {
-                const data = response.data;
-                setUsers(data)
-                console.log(data);
+        function get_users(){
+            axios.get(import.meta.env.VITE_BACKEND_URL + '/admin/users')
+                .then(response => {
+                    const data = response.data;
+                    setUsers(data)
+                    console.log(data);
+                })
+        }
 
-            })
+        setInterval(get_users, 2000);
     }, []);
     return (
         <>
