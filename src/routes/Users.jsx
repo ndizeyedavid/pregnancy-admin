@@ -13,7 +13,7 @@ const Users = () => {
                     console.log(data);
                 })
         }
-
+        get_users();
         setInterval(get_users, 2000);
     }, []);
     return (
