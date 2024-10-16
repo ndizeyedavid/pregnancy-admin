@@ -47,7 +47,7 @@ const Table = ({ rows }) => {
                                 <th className='py-3 pr-6'>Phone</th>
                                 {/* <th className='py-3 pr-6'>Pregnancy Date</th> */}
                                 <th className='py-3 pr-6'>Temperature</th>
-                                <th className='py-3 pr-6'>Blood Pressure</th>
+                                <th className='py-3 pr-6'>Heart Beat Rate</th>
                                 {/* <th className='py-3 pr-6' /> */}
                             </tr>
                         </thead>
