@@ -25,7 +25,7 @@ const Table = ({ rows }) => {
             bpm = Math.floor(Math.random()*120);
             return bpm;
         }else{
-            bpm = Math.round(data.blood_pressure * 100 / 10400);
+            bpm = Math.round(crs * 100 / 10400);
             return bpm;
             // setBloodPressure(bpm);
         }
