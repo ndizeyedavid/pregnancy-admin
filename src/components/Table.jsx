@@ -20,13 +20,16 @@ const Table = ({ rows }) => {
     }
     
     function calculate_bpm(crs){
-        // let bpm = ;
+        let bpm;
         if (crs > 8400){
             bpm = Math.floor(Math.random()*120);
-            console.log(bpm);
+            return bpm;
+
+            // console.log(bpm);
         }else{
             bpm = Math.round(crs * 100 / 10400);
-            console.log(bpm);
+            return bpm;
+            // console.log(bpm);
             // setBloodPressure(bpm);
         }
     }
