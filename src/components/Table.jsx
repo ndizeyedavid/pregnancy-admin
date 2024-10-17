@@ -23,10 +23,10 @@ const Table = ({ rows }) => {
         // let bpm = ;
         if (crs > 8400){
             bpm = Math.floor(Math.random()*120);
-            return bpm;
+            console.log(bpm);
         }else{
             bpm = Math.round(crs * 100 / 10400);
-            return bpm;
+            console.log(bpm);
             // setBloodPressure(bpm);
         }
     }
