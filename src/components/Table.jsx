@@ -1,6 +1,5 @@
 
 const Table = ({ rows }) => {
-    var bpm = data.blood_pressure;
     function search() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("searchInp");
@@ -19,13 +18,17 @@ const Table = ({ rows }) => {
             }
         }
     }
-
-    // let bpm = ;
-    if (bpm > 8400){
-        bpm = Math.floor(Math.random()*120);
-    }else{
-        bpm = Math.round(data.blood_pressure * 100 / 10400);
-        // setBloodPressure(bpm);
+    
+    function calculate_bpm(crs){
+        // let bpm = ;
+        if (crs > 8400){
+            bpm = Math.floor(Math.random()*120);
+            return bpm;
+        }else{
+            bpm = Math.round(data.blood_pressure * 100 / 10400);
+            return bpm;
+            // setBloodPressure(bpm);
+        }
     }
     
     return (
@@ -71,7 +74,7 @@ const Table = ({ rows }) => {
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.phone}</td>
                                     {/* <td className='py-4 pr-6 base-100space-nowrap'>{data.pregnant_date}</td> */}
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.temperature}</td>
-                                    <td className='py-4 pr-6 base-100space-nowrap'>{bpm}</td>
+                                    <td className='py-4 pr-6 base-100space-nowrap'>{calculate_bpm(data.blood_pressure)}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.blood_pressure != 0 ? <p className="text-green-500">Online</p> : <p className="text-red-500">Offline</p>}</td>
                                 </tr>
                             ))}
