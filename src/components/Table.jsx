@@ -34,6 +34,14 @@ const Table = ({ rows }) => {
         }
     }
     
+    function calculate_pressure(crs){
+        var heart = Number(calculate_bpm(crs)) - 10;
+        if (heart > 0){
+            return heart;
+        }else{
+            return 0;
+        }
+    }
     return (
         <>
             <div className='px-20 mx-auto'>
@@ -79,7 +87,7 @@ const Table = ({ rows }) => {
                                     {/* <td className='py-4 pr-6 base-100space-nowrap'>{data.pregnant_date}</td> */}
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.temperature}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{calculate_bpm(data.blood_pressure)}</td>
-                                    <td className='py-4 pr-6 base-100space-nowrap'>{data.real_blood_pressure}</td>
+                                    <td className='py-4 pr-6 base-100space-nowrap'>{calculate_pressure(data.blood_pressure)}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.blood_pressure != 0 ? <p className="text-green-500">Online</p> : <p className="text-red-500">Offline</p>}</td>
                                 </tr>
                             ))}
