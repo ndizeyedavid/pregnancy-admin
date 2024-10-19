@@ -64,6 +64,7 @@ const Table = ({ rows }) => {
                                 {/* <th className='py-3 pr-6'>Pregnancy Date</th> */}
                                 <th className='py-3 pr-6'>Temperature</th>
                                 <th className='py-3 pr-6'>Heart Beat Rate</th>
+                                <th className='py-3 pr-6'>Blood Pressure</th>
                                 <th className='py-3 pr-6'>Sensors</th>
                                 {/* <th className='py-3 pr-6' /> */}
                             </tr>
@@ -78,6 +79,7 @@ const Table = ({ rows }) => {
                                     {/* <td className='py-4 pr-6 base-100space-nowrap'>{data.pregnant_date}</td> */}
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.temperature}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{calculate_bpm(data.blood_pressure)}</td>
+                                    <td className='py-4 pr-6 base-100space-nowrap'>{data.real_blood_pressure}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.blood_pressure != 0 ? <p className="text-green-500">Online</p> : <p className="text-red-500">Offline</p>}</td>
                                 </tr>
                             ))}
