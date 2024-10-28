@@ -1,5 +1,10 @@
+import axios from "axios";
+import { useState } from "react";
 
 const Table = ({ rows }) => {
+
+    const [loading, setLoading] = useState(false);
+    
     function search() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("searchInp");
@@ -42,6 +47,20 @@ const Table = ({ rows }) => {
             return 0;
         }
     }
+
+    function verify_user(shouldI, id){
+        setLoading(true);
+        axios.post(import.meta.env.VITE_BACKEND_URL + '/admin/verify', {
+            verify: shouldI ? 1 : 0,
+            user_id: id
+        })
+        .then(response => {
+            const data = response.data;
+            setLoading(false);
+            console.log(data);
+        })
+    }
+    
     return (
         <>
             <div className='px-20 mx-auto'>
@@ -73,7 +92,9 @@ const Table = ({ rows }) => {
                                 <th className='py-3 pr-6'>Temperature</th>
                                 <th className='py-3 pr-6'>Heart Beat Rate</th>
                                 <th className='py-3 pr-6'>Blood Pressure</th>
+                                <th className='py-3 pr-6'>Status</th>
                                 <th className='py-3 pr-6'>Sensors</th>
+                                <th className='py-3 pr-6'>Action</th>
                                 {/* <th className='py-3 pr-6' /> */}
                             </tr>
                         </thead>
@@ -88,7 +109,9 @@ const Table = ({ rows }) => {
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.temperature}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{calculate_bpm(data.blood_pressure)}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{calculate_pressure(data.blood_pressure)}</td>
+                                    <td className='py-4 pr-6 base-100space-nowrap'>{data.verified == 0 ? <p className="badge badge-warning animate-pulse">Pending</p> : <p className="badge badge-success">Active</p>}</td>
                                     <td className='py-4 pr-6 base-100space-nowrap'>{data.blood_pressure != 0 ? <p className="text-green-500">Online</p> : <p className="text-red-500">Offline</p>}</td>
+                                    <td className='py-4 pr-6 base-100space-nowrap'>{data.verified == 0 ? <button onClick={()=>verify_user(true, data.user_id)} className="btn btn-success btn-sm">{loading ? <span className="loading loading-spinner"></span> : "Activate"}</button> : <button onClick={()=>verify_user(false, data.user_id)} className="btn btn-outline btn-error btn-sm">{loading ? <span className="loading loading-spinner"></span> : "Dectivate"}</button>}</td>
                                 </tr>
                             ))}
 
